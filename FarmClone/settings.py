@@ -59,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'FarmClone.urls'
@@ -156,3 +158,10 @@ RISPY_TEMPLATE_PACK='bootstrap4'
 
 LOGIN_REDIRECT_URL='OnlineFarm-landing'
 LOGIN_URL='login'
+
+# configuring the location for media
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
