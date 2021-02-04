@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for post in posts %}
+        <article class="media content-section">
+          <div class="card-body">
+          <img class="#" src="{{ post.image.url }}" height="300px" width="300px">
+          </div>
+          <div class="media-body">
+            <div class="article-metadata">
+              <small class="text-muted">posted on {{ post.pub_date|date:"F d, Y" }}</small>
+            </div>
+            <h2><a class="article-title" href="{% url 'post-detail' post.id %}"><b style="color: blue;">View Image</b></a></h2>
+            <p class="article-content">{{ post.caption }}</p>
+          </div>
+          <a class="mr-2" href="{% url 'comment' post.id %}">Comments</a>
+          {% if user.is_authenticated %}
+          <form action="{% url 'like_post' post.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" name="post_id" value="{{post.id}}" class="btn-sm btn-info"><b style="color: black;">Like</b></button>
+          </form>
+          {% endif %}
+        </article>
+    {% endfor %}
+{% endblock content %}
+
+
+<div class="container">
+  <h3 class="text-center">Contact</h3>
+  <p class="text-center"><em>We love our fans!</em></p>
+  <div class="row test">
+    <div class="col-md-4">
+      <p>Fan? Drop a note.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span>Chicago, US</p>
+      <p><span class="glyphicon glyphicon-phone"></span>Phone: +00 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>Email: mail@mail.com</p>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
