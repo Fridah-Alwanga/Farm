@@ -1,11 +1,43 @@
-{% extends 'base.html' %}
+<link href="https://fonts.googleapis.com/css?family=Courgette|Lato&display=swap" rel="stylesheet"> {% extends 'base.html' %} {% load bootstrap4 %} {% block content %}
+<div style=padding-top:120px;></div>
+<div style="padding-bottom: 30px;"></div>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></li>
+      <li data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://preston-too.github.io/GREENWAVE-ORGANIC-WEBSITE/images/images1.jpeg" class="d-block w-100" alt="...">
+        <div class="carousel-caption" style="align-content: center;">
+            <h5>Marketing</h5>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </div>
+      </div>
+      <div class="carousel-item" >
+        <img src="https://preston-too.github.io/GREENWAVE-ORGANIC-WEBSITE/images/images2.jpeg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://milq.co.ke/wp-content/uploads/2019/02/slide1.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
 
-{% block content %}
-{{ block.super}}
-<div class="container-fluid" style="background-image: url('https://www.destinafrica.co.ke/wp-content/uploads/2021/01/House-Model-Furaha-City.jpg');  background-repeat: no-repeat; background-size: cover; height: 100vh;  background-position: center; text-align:center; overflow-x:hidden;" >
-    <h1 style="font-size:100px; margin-top:150px; color:#2BBBAD; font-family: 'Henny Penny', cursive; " >The<i class="fas fa-home"></i>ood</h1>
-    <a href="{%url 'farm'%}"  style="margin-top:50px; " class="btn default-color btn-small">View Farm</a>
-
-</div>
-
-{% endblock %}
+  {%endblock%}

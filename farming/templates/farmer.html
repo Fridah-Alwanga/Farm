@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <br>
+    <h2 class="text-center" style="font-family: 'Kanit', sans-serif;">Available Farmers</h2>
+    <div class="row">
+        {% for biz in farmers %}
+        <div class=" col-sm-12 col-lg-4 mb-5">
+            <div class="card">
+                <div class="mt-3 ml-3 mr-3">
+                    <p><b>farmers Name:</b> {{farmers.name}}</p>
+                    <p><b>Description:</b> {{farmers.description}}</p>
+                    <p><b>Email:</b> {{farmers.email}}</p>
+                    <p><b>Location:</b> {{farmers.location}}</p>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{%endblock%}
